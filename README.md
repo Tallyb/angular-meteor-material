@@ -1,6 +1,6 @@
-# Simple Todo List with 
+# Simple Todo List BoilerPlate
 
-* angular meteor 
+* Angular Meteor 
 * Angualr material 
 * UI Router
 * Login, logout, reset password screens
