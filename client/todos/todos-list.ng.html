@@ -1,27 +1,25 @@
 <navbar></navbar>
 
 <md-content layout="row" layout-align="center start" layout-fill>
-    <md-whiteframe layout="column" flex flex-md="66" flex-lg="66" flex-gt-lg="50" class="md-whiteframe-z2" layout-fill>
-        <form class="new-task" ng-submit="addTask(newTask);newTask='';" ng-show="$root.currentUser">
-            <md-input-container>
+    <md-whiteframe layout="column" flex flex-md="66" flex-lg="66" flex-gt-lg="50" class="md-whiteframe-z2" layout-fill layout-padding layout-margin>
+        <form class="md-primary" ng-submit="addTask(newTask);newTask='';" ng-show="$root.currentUser">
+            <md-input-container layout-fill>
                 <label> Task name </label>
                 <input ng-model="newTask" type="text" />
             </md-input-container>
         </form>
-        <md-divider class="inset"></md-divider>
         <md-switch ng-model="$parent.hideCompleted" aria-label="Hide Completed">
             Hide Completed Tasks
         </md-switch>
-
+        <md-divider class="inset"></md-divider>
         <md-list>
             <md-list-item ng-repeat="task in tasks" layout="row" layout-align="space-between center" md-noink>
                 <md-checkbox ng-model="task.checked" aria-label="task completed" ng-click="setChecked(task)"></md-checkbox>
                 <md-switch ng-if="task.owner === $root.currentUser._id" ng-model="task.private"
                            ng-change="setPrivate(task)" aria-label="task private">
-                    <span ng-show="task.private">Private </span>
-                    <span ng-hide="task.private">Public </span>
+                    <small> {{ task.private ? 'private' : 'public'}}</small>
                 </md-switch>
-                <p><strong>{{task.username}}</strong> - {{task.text}}</p>
+                <p><strong>{{task.text}}</strong></p>
                 <span flex></span>
                 <md-icon ng-click="deleteTask(task)">delete</md-icon>
             </md-list-item>

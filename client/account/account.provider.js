@@ -6,7 +6,7 @@ function Accounts (config)  {
 angular.module ('account').provider("accounts", function () {
     var options  = {
         providers: [],
-        successPath:'/',
+        successPath:'home',
         failurePath: '/login'
     };
 
