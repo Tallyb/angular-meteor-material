@@ -1,4 +1,4 @@
-angular.module("simple-todos").controller("ResetCtrl", ['$meteor', '$state',
+angular.module('account').controller("ResetCtrl", ['$meteor', '$state',
   function ($meteor, $state) {
     var vm = this;
 

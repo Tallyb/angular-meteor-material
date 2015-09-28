@@ -1,39 +1,50 @@
-<div class="container" ng-controller="TodosListCtrl">
-  <header>
+<md-toolbar class="md-toolbar-tools" layout-align="space-between" layout="row">
     <h1>Todo List ( {{ incompleteCount() }} )</h1>
+    <div layout="row" ng-show="$root.currentUser" layout-padding>
+        <md-button ng-hide="screenIsSmall"> {{$root.currentUser.emails[0].address}}</md-button>
+        <md-button> <a href="/logout"> Logout </a></md-button>
+    </div>
 
-    <label class="hide-completed">
-      <input type="checkbox" ng-model="$parent.hideCompleted"/>
-      Hide Completed Tasks
-    </label>
+    <div layout="row" ng-hide="$root.currentUser" layout-padding>
+        <a href="/login" class="md-button md-primary"> Sign in </a>
+        <a href="/register" class="md-button md-primary"> Register </a>
+    </div>
 
+</md-toolbar>
 
+<md-content layout="row" layout-align="center start" layout-fill>
+    <md-whiteframe layout="column" flex flex-md="66" flex-lg="66" flex-gt-lg="50" class="md-whiteframe-z2" layout-fill>
+        <form class="new-task"
+              ng-submit="addTask(newTask); newTask='';"
+              ng-show="$root.currentUser">
+            <md-input-container>
+                <input ng-model="newTask" type="text" placeholder="Type to add new tasks" />
+            </md-input-container>
+        </form>
+        <md-divider class="inset"></md-divider>
+        <md-switch ng-model="$parent.hideCompleted" aria-label="Hide Completed">
+            Hide Completed Tasks
+        </md-switch>
 
-    <!-- add a form below the h1 -->
-    <form class="new-task"
-          ng-submit="addTask(newTask); newTask='';"
-          ng-show="$root.currentUser">
-      <input ng-model="newTask" type="text"
-             name="text" placeholder="Type to add new tasks" />
-    </form>
-  </header>
+        <ul ng-repeat="task in tasks">
+            <li ng-class="{'checked': task.checked, 'private': task.private}">
+                <button class="delete" ng-click="deleteTask(task)">&times;</button>
 
-  <ul ng-repeat="task in tasks">
-    <li ng-class="{'checked': task.checked, 'private': task.private}">
-      <button class="delete" ng-click="deleteTask(task)">&times;</button>
+                <input type="checkbox" ng-checked="task.checked"
+                       ng-click="setChecked(task)" class="toggle-checked" />
 
-      <input type="checkbox" ng-checked="task.checked"
-             ng-click="setChecked(task)" class="toggle-checked" />
-
-      <button class="toggle-private"
-              ng-if="task.owner === $root.currentUser._id"
-              ng-click="setPrivate(task)">
-        {{task.private == true ? "Private" : "Public"}}
-      </button>
+                <button class="toggle-private" ng-if="task.owner === $root.currentUser._id"
+                        ng-click="setPrivate(task)">
+                    {{task.private === true ? "Private" : "Public"}}
+                </button>
 
       <span class="text">
         <strong>{{task.username}}</strong> - {{task.text}}
       </span>
-    </li>
-  </ul>
-</div>
+            </li>
+        </ul>
+
+    </md-whiteframe>
+
+</md-content>
+

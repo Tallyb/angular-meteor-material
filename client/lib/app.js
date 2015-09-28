@@ -1,12 +1,10 @@
-/**
- * Created by Tallyb on 25-Sep-15.
- */
 
 'use strict';
 angular.module('simple-todos',[
     'angular-meteor'
     ,'ui.router'
     ,'ngMaterial'
+    ,'account'
 ]);
 
 function onReady() {

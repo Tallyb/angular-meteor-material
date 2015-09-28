@@ -13,8 +13,7 @@ angular.module('simple-todos').config(
         //configure material palettes colors
         $mdThemingProvider.theme('default')
             .primaryPalette('teal')
-            .accentPalette('orange');
-
+            .accentPalette('pink');
     });
 
 

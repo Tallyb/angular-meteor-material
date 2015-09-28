@@ -1,4 +1,4 @@
-angular.module("simple-todos").controller("LoginCtrl", ['$meteor', '$state',
+angular.module("account").controller("LoginCtrl", ['$meteor', '$state',
   function ($meteor, $state) {
     var vm = this;
 
@@ -9,7 +9,7 @@ angular.module("simple-todos").controller("LoginCtrl", ['$meteor', '$state',
 
     vm.error = '';
 
-    vm.login = function () {
+    vm.login = function (service) {
       $meteor.loginWithPassword(vm.credentials.email, vm.credentials.password).then(
         function () {
           $state.go('home');

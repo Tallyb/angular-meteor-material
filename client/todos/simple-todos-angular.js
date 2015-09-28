@@ -1,8 +1,6 @@
 
 
-
-  angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
-    function ($scope, $meteor) {
+  angular.module('simple-todos').controller('TodosListCtrl', function ($scope, $meteor, $mdMedia) {
 
       $scope.$meteorSubscribe('tasks');
 
@@ -37,7 +35,9 @@
         return Tasks.find({ checked: {$ne: true} }).count();
       };
 
-    }]);
+      $scope.screenIsSmall = $mdMedia('sm');
+
+    });
 
 
 

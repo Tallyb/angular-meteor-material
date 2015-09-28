@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('simple-todos').config(
+angular.module('account').config(
     function ( $stateProvider) {
 
         $stateProvider
