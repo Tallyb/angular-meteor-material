@@ -21,7 +21,7 @@
       };
 
       $scope.setPrivate = function (task) {
-        $meteor.call('setPrivate', task._id, ! task.private);
+        $meteor.call('setPrivate', task._id, !task.private);
       };
 
       $scope.$watch('hideCompleted', function() {

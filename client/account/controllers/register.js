@@ -1,5 +1,4 @@
-angular.module('account').controller("RegisterCtrl", ['$meteor', '$state',
-  function ($meteor, $state) {
+angular.module('account').controller("RegisterCtrl", function ($meteor, $state, accounts) {
     var vm = this;
 
     vm.credentials = {
@@ -8,6 +7,8 @@ angular.module('account').controller("RegisterCtrl", ['$meteor', '$state',
     };
 
     vm.error = '';
+
+    vm.options = accounts.options;
 
     vm.register = function () {
       $meteor.createUser(vm.credentials).then(
@@ -19,5 +20,10 @@ angular.module('account').controller("RegisterCtrl", ['$meteor', '$state',
         }
       );
     };
-  }
-]);
+
+    vm.loginWithProvider = function (provider) {
+        alert (provider + ' register');
+    }
+
+    }
+);

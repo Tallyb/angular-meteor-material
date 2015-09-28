@@ -16,11 +16,11 @@
             <form name="registerForm" layout="column" layout-fill layout-padding layout-margin>
                 <md-input-container >
                     <label> Email </label>
-                    <input type="text" ng-model="rc.credentials.email" placeholder="email" aria-label="email" required/>
+                    <input type="text" ng-model="rc.credentials.email"  aria-label="email" required/>
                 </md-input-container>
                 <md-input-container >
                     <label> Password </label>
-                    <input type="password" ng-model="rc.credentials.password" placeholder="password" aria-label="password" required/>
+                    <input type="password" ng-model="rc.credentials.password"  aria-label="password" required/>
                 </md-input-container>
                 <div layout="row" layout-align="end center">
                     <md-button class="md-raised md-primary" ng-click="rc.register()" aria-label="login" ng-disabled="rc.registerForm.$invalid()">Register</md-button>
@@ -30,22 +30,14 @@
             <md-divider class="inset"></md-divider>
 
 
-            <div layout="row" layout-fill layout-margin>
+            <div layout="row" layout-fill layout-margin ng-show="rc.options.providers.length >0">
                 <p class="md-body-2"> Want to use an existing account? </p>
             </div>
 
             <div layout="row" layout-fill layout-margin layout-padding layout-wrap>
-                <md-button class="md-raised">
-                    <md-icon md-svg-icon="google" style="color: #DC4A38;"></md-icon>
-                    <span> Google</span>
-                </md-button>
-                <md-button class="md-raised">
-                    <md-icon md-svg-icon="facebook" style="color: #3F62B4;"></md-icon>
-                    <span>Facebook </span>
-                </md-button>
-                <md-button class="md-raised">
-                    <md-icon md-svg-icon="twitter" style="color: #27AAE2;"></md-icon>
-                    <span>Twitter </span>
+                <md-button class="md-raised" ng-click="rc.loginWithProvider(provider.name)" ng-repeat="provider in rc.options.providers">
+                    <md-icon md-svg-src="{{provider.icon}}" style="color: {{provider.color}};"></md-icon>
+                    <span> {{provider.name}}</span>
                 </md-button>
             </div>
             <md-toolbar ng-show="rc.error" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
