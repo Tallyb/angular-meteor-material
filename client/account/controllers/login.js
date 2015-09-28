@@ -21,8 +21,17 @@ angular.module("account").controller("LoginCtrl", function ($meteor, $state, acc
       );
     };
 
-     vm.loginWithProvider = function (provider) {
-        alert (provider + ' login');
-     }
+        vm.loginWithProvider = function (provider) {
+            $meteor["loginWith" + provider].call ({}).then (
+                function (response) {
+                    console.log (response);
+                },
+                function (err) {
+                    console.log (err);
+                }
+
+            );
+        };
+
   }
 );

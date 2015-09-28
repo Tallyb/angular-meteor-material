@@ -13,7 +13,7 @@ angular.module('account').controller("RegisterCtrl", function ($meteor, $state, 
     vm.register = function () {
       $meteor.createUser(vm.credentials).then(
         function () {
-          $state.go('home');
+          $state.go(vm.options.successPath);
         },
         function (err) {
           vm.error = 'Registration error - ' + err;
@@ -22,8 +22,16 @@ angular.module('account').controller("RegisterCtrl", function ($meteor, $state, 
     };
 
     vm.loginWithProvider = function (provider) {
-        alert (provider + ' register');
-    }
+        $meteor["loginWith" + provider].call ({}).then (
+            function (response) {
+                console.log (response);
+            },
+            function (err) {
+                console.log (err);
+            }
+
+        );
+    };
 
     }
 );
