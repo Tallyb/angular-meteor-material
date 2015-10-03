@@ -1,4 +1,4 @@
-angular.module("account").controller("LoginCtrl", function ($meteor, $state, accounts) {
+angular.module("account").controller("LoginCtrl", function ($meteor, $state,$mdToast, accounts) {
     var vm = this;
 
     vm.credentials = {
@@ -27,7 +27,7 @@ angular.module("account").controller("LoginCtrl", function ($meteor, $state, acc
                     console.log (response);
                 },
                 function (err) {
-                    console.log (err);
+                    vm.error=err.message;
                 }
 
             );

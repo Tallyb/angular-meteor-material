@@ -27,6 +27,7 @@ angular.module('account').controller("RegisterCtrl", function ($meteor, $state, 
                 console.log (response);
             },
             function (err) {
+                vm.error=err.message;
                 console.log (err);
             }
 

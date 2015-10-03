@@ -8,22 +8,21 @@
                 <input ng-model="newTask" type="text" />
             </md-input-container>
         </form>
-        <md-switch ng-model="$parent.hideCompleted" aria-label="Hide Completed">
+        <md-switch ng-model="hideCompleted" aria-label="Hide Completed" ng-change="hideTasks(hideCompleted)">
             Hide Completed Tasks
         </md-switch>
         <md-divider class="inset"></md-divider>
         <md-list>
-            <md-list-item ng-repeat="task in tasks" layout="row" layout-align="space-between center" md-noink>
-                <md-checkbox ng-model="task.checked" aria-label="task completed" ng-click="setChecked(task)"></md-checkbox>
-                <md-switch ng-if="task.owner === $root.currentUser._id" ng-model="task.private"
-                           ng-change="setPrivate(task)" aria-label="task private">
-                    <small> {{ task.private ? 'private' : 'public'}}</small>
-                </md-switch>
+            <li ng-repeat="task in tasks" layout="row" layout-align="space-between center" md-no-ink>
+                <md-checkbox ng-model="task.checked" aria-label="task completed" ng-change="setChecked(task)"></md-checkbox>
                 <p><strong>{{task.text}}</strong></p>
+                <md-switch md-no-ink ng-if="task.owner === $root.currentUser._id" ng-model="task.private"
+                           ng-change="setPrivate(task)" aria-label="task private">
+                    <small> {{ task.private ? 'Private' : 'Public'}}</small>
+                </md-switch>
                 <span flex></span>
                 <md-icon ng-click="deleteTask(task)">delete</md-icon>
-            </md-list-item>
-
+            </li>
 
         </md-list>
 

@@ -1,5 +1,5 @@
 <md-content layout="row" layout-align="center start" layout-fill layout-margin>
-    <md-whiteframe layout="column" flex flex-md="50" flex-lg="50" flex-gt-lg="33" class="md-whiteframe-z2" layout-fill>
+    <md-whiteframe layout="column" flex flex-md="50" flex-lg="50" flex-gt-lg="33" class="md-whiteframe-z2" >
 
         <md-toolbar class="md-primary md-tall" layout="column" layout-align="end" layout-fill>
             <div layout="row" class="md-toolbar-tools md-toolbar-tools-bottom">
@@ -8,6 +8,18 @@
         </md-toolbar>
 
         <div layout="column" layout-fill layout-margin layout-padding>
+
+            <div layout="row" layout-fill layout-margin ng-show="rc.options.providers.length >0">
+                <p class="md-body-2">Use an existing account? </p>
+            </div>
+
+            <div layout="row" layout-fill layout-margin layout-padding layout-wrap>
+                <md-button class="md-raised" ng-click="rc.loginWithProvider(provider.name)" ng-repeat="provider in rc.options.providers">
+                    <md-icon md-svg-src="{{provider.icon}}" style="color: {{provider.color}};"></md-icon>
+                    <span> {{provider.name}}</span>
+                </md-button>
+            </div>
+            <md-divider class="inset"></md-divider>
 
             <div layout="row" layout-fill layout-margin>
                 <p class="md-body-2">Use your email?</p>
@@ -27,19 +39,8 @@
                 </div>
             </form>
 
-            <md-divider class="inset"></md-divider>
 
 
-            <div layout="row" layout-fill layout-margin ng-show="rc.options.providers.length >0">
-                <p class="md-body-2"> Want to use an existing account? </p>
-            </div>
-
-            <div layout="row" layout-fill layout-margin layout-padding layout-wrap>
-                <md-button class="md-raised" ng-click="rc.loginWithProvider(provider.name)" ng-repeat="provider in rc.options.providers">
-                    <md-icon md-svg-src="{{provider.icon}}" style="color: {{provider.color}};"></md-icon>
-                    <span> {{provider.name}}</span>
-                </md-button>
-            </div>
             <md-toolbar ng-show="rc.error" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
                 <p class="md-body-1">{{ rc.error }}</p>
             </md-toolbar>
