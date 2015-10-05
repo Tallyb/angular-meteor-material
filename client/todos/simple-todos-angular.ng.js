@@ -33,13 +33,6 @@
               $scope.query = {};
       };
 
-      //$scope.$watch('hideCompleted', function() {
-      //  if ($scope.hideCompleted)
-      //    $scope.query = {checked: {$ne: true}};
-      //  else
-      //    $scope.query = {};
-      //});
-
       $scope.incompleteCount = function () {
         return Tasks.find({ checked: {$ne: true} }).count();
       };

@@ -21,17 +21,17 @@ angular.module("account").controller("LoginCtrl", function ($meteor, $state,$mdT
       );
     };
 
-        vm.loginWithProvider = function (provider) {
-            $meteor["loginWith" + provider].call ({}).then (
-                function (response) {
-                    console.log (response);
-                },
-                function (err) {
-                    vm.error=err.message;
-                }
+    vm.loginWithProvider = function (provider) {
+        $meteor["loginWith" + provider].call ({}).then (
+            function (response) {
+                console.log (response);
+            },
+            function (err) {
+                vm.error=err.message;
+            }
 
-            );
-        };
+        );
+    };
 
   }
 );

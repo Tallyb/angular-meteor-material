@@ -28,3 +28,8 @@ angular
 angularui:angular-ui-router
 angular:angular-material
 planettraining:material-design-icons
+angular:angular-mocks
+sanjo:jasmine
+velocity:console-reporter
+velocity:html-reporter
+fixtures
