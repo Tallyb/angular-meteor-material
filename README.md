@@ -4,6 +4,9 @@
 * Angular material 
 * UI Router
 * Login, logout, reset password screens
-* Crodova
-* Tests - jasmine, velocity
+
+ToDo 
+* Crodova [will have to wait - I am on windows]
+* * Tests - jasmine, velocity...
+* Accounts functionality enhancements
 Use as boilerplate
