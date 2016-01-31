@@ -10,7 +10,7 @@ angular.module("account").controller("LoginCtrl", function ($meteor, $state,$mdT
 
     vm.options = accounts.options;
 
-    vm.login = function (service) {
+    vm.login = function () {
       $meteor.loginWithPassword(vm.credentials.email, vm.credentials.password).then(
         function () {
           $state.go(vm.options.successPath);
@@ -31,6 +31,10 @@ angular.module("account").controller("LoginCtrl", function ($meteor, $state,$mdT
             }
 
         );
+    };
+
+    vm.loginWithHttp = function () {
+
     };
 
   }

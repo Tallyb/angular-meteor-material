@@ -5,6 +5,7 @@
 # but you can also edit it by hand.
 
 #accounts-ui
+accounts-base
 accounts-password
 accounts-google
 accounts-facebook
@@ -22,7 +23,7 @@ logging
 reload
 random
 ejson
-spacebars
+http
 check
 angular
 #urigo:angular-blaze-template

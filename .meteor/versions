@@ -11,7 +11,7 @@ angular-templates@0.0.3
 angular:angular@1.4.8
 angular:angular-animate@1.4.8
 angular:angular-aria@1.4.8
-angular:angular-material@0.11.4
+angular:angular-material@1.0.4
 angular:angular-mocks@1.4.8
 angularui:angular-ui-router@0.2.15
 autoupdate@1.2.4
