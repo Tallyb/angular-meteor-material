@@ -13,9 +13,10 @@ standard-minifiers
 meteor-base
 mobile-experience
 mongo
-blaze-html-templates
+#blaze-html-templates
 session
 jquery
+underscore
 tracker
 logging
 reload
@@ -32,4 +33,5 @@ angular:angular-mocks
 sanjo:jasmine
 velocity:console-reporter
 velocity:html-reporter
+meteorhacks:npm
 fixtures

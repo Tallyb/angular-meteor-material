@@ -7,19 +7,19 @@ angular.module('account').config(
         $stateProvider
             .state('login', {
                 url: '/login',
-                templateUrl: 'client/account/views/login.ng.html',
+                templateUrl: 'client/account/views/login.html',
                 controller: 'LoginCtrl',
                 controllerAs: 'lc'
             })
             .state('register',{
                 url: '/register',
-                templateUrl: 'client/account/views/register.ng.html',
+                templateUrl: 'client/account/views/register.html',
                 controller: 'RegisterCtrl',
                 controllerAs: 'rc'
             })
             .state('resetPassword', {
                 url: '/resetPassword',
-                templateUrl: 'client/account/views/reset-password.ng.html',
+                templateUrl: 'client/account/views/reset-password.html',
                 controller: 'ResetCtrl',
                 controllerAs: 'rpc'
             })

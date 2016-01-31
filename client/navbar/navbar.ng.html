@@ -1,9 +1,17 @@
 <md-toolbar class="md-toolbar-tools" layout-align="space-between" layout="row">
-    <h1>Todo List ( {{ incompleteCount() }} )</h1>
+    <div layout="row" layout-padding layout-margin>
+        <a href="https://github.com/Tallyb/angular-meteor-material">
+            <md-icon class="md-primary" md-svg-src="icons/github-circle.svg">
+            </md-icon>
+        </a>
+        <h1>Todo List ( {{incompleteCount()}} )</h1>
+    </div>
+
     <md-button ng-show="$root.currentUser"> <a href="/logout"> Logout </a></md-button>
 
     <div layout="row" ng-hide="$root.currentUser" layout-padding>
         <a href="/login" class="md-button md-primary"> Sign in </a>
         <a href="/register" class="md-button md-primary"> Register </a>
+
     </div>
 </md-toolbar>
